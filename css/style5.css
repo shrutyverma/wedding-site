@@ -1,0 +1,30 @@
+#outer
+{
+
+width:1000px;
+border:1px solid black;
+margin:0px auto;
+}
+#imgouter
+{
+height:700px;
+width:1000px;
+margin:0px auto;
+border:1px solid black;
+}
+#img{
+height:501px;
+width:501px;
+margin:0px auto;
+margin-top:13%;
+}
+#showcomments
+{
+color:deeppink;
+margin-left:2%;
+text-align:left;
+}
+#table
+{
+margin-left:2%;
+}

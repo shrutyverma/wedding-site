@@ -1,0 +1,67 @@
+</style>
+<Script Language=Javascript>
+	 function CheckDate()
+  {
+
+var str1  = document.getElementById("demo1");
+var str2  = document.getElementById("todate");
+var string1 = str1.value;
+var string2 = str2.value;
+
+var arrfromdate = string1.split("-");
+var fdate = arrfromdate[0];
+var fmonth = arrfromdate[1];
+var fyear = arrfromdate[2]; 
+
+var arrtodate = string2.split("/");
+var tdate = arrtodate[0];
+var tmonth= arrtodate[1];
+var tyear = arrtodate[2];
+
+var date1 = new Date(fyear, fmonth, fdate); 
+var date2 = new Date(tyear, tmonth, tdate);
+var dayNames = new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday");
+
+
+var dmonth = fmonth-1;
+
+var date3 = new Date(fyear, dmonth, fdate); 
+var dayname  = dayNames[date3.getDay()];
+
+ if(date1 > date2)
+ {
+  alert("You cant take appointment for this date..");
+   document.getElementById("demo1").style.backgroundColor="#FFFFE0"; 
+  document.getElementById("demo1").value = "";
+ return false;
+ }
+ else if(dayname =="Sunday")
+ {
+  alert("Sunday is Holiday..");
+   document.getElementById("demo1").style.backgroundColor="#FFFFE0"; 
+  document.getElementById("demo1").value = "";
+ return false;
+ }
+ }
+    </Script>
+
+
+<form id="formID" class="formular" method="post" action="appointmenttime.php">				 
+                <input type="hidden" name="todate" id="todate" value="">
+                 Appointment Date :<label for="select"></label><script type="text/javascript">
+                 function show_alert()
+                {
+	              alert("Please select Date Time Picker");
+                }
+                 </script>
+              <script src="datetimepicker_css.js"></script>
+                 <input type="Text" id="demo1" maxlength="25" size="25" onclick="show_alert()" name="dateofbirth" readonly 
+				 class="validate[required]"  onchange="CheckDate()"/>
+                 <img src="cal.gif" onclick="javascript:NewCssCal ('demo1','ddMMyyyy','','','','','future')" 
+				 style="cursor:pointer"/>
+				 
+   
+                  <input type="submit" name="button" id="button" value="Make An Appointment" />
+                 
+    
+				 </form>
